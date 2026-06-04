@@ -1,0 +1,107 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Great Vibes', cursive;
+}
+
+
+.tela-inicial {
+  width: 100%;
+  height: 100vh;
+
+  background: linear-gradient(135deg, #2b0000 0%, #8b0000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.conteudo-play h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.conteudo-play p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.botao-play {
+  background-color: #ff3333;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.botao-play:hover {
+  transform: scale(1.1);
+  background-color: #ff1a1a;
+}
+
+
+.tela-principal {
+  min-height: 100vh;
+  background-color: #ffe6e6;
+  padding: 40px 20px;
+}
+
+.botao-voltar {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff3333;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+  z-index: 999;
+}
+
+.botao-voltar:hover {
+  transform: scale(1.1);
+  background-color: #ff1a1a;
+}
+
+.cabecalho h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #c0395a;
+  font-size: 3rem;
+  font-family: 'Great Vibes', cursive;
+}
+
+.grade-cartas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 60px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.texto-carregando {
+    color: #8b0000;
+    font-weight: bold;
+    grid-column: 1 / -1;
+    text-align: center;
+}
