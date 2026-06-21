@@ -83,6 +83,24 @@ body, html, #root {
   background-color: #ff1a1a;
 }
 
+.botao-musica {
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.28);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.botao-musica:hover {
+  transform: scale(1.06);
+  background-color: #a30000;
+}
+
 .cabecalho h2 {
   text-align: center;
   margin-bottom: 40px;
@@ -104,4 +122,48 @@ body, html, #root {
     font-weight: bold;
     grid-column: 1 / -1;
     text-align: center;
+}
+
+/* Navigation header styles */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 40px;
+}
+
+.cabecalho-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #8b0000;
+  transition: background 0.15s, transform 0.12s;
+}
+
+.nav-link.ativo {
+  background: linear-gradient(90deg,#ff9999,#ff4d4d);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.pagina-mesversario {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
 }

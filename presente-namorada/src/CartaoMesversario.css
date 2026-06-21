@@ -1,0 +1,201 @@
+.mesversario-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.acoes-topo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.botao-voltar-sec {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #c0395a;
+}
+
+.cartao-real {
+  width: min(560px, 95vw);
+  height: 360px;
+  position: relative;
+  perspective: 1600px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.cartao-sombra {
+  position: absolute;
+  inset: auto 20px 0 20px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  filter: blur(18px);
+  transform: translateY(18px);
+}
+
+.cartao-interior,
+.cartao-capa {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  backface-visibility: hidden;
+  transition: transform 0.85s cubic-bezier(.2,.8,.2,1), opacity 0.35s ease;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.18);
+}
+
+.cartao-interior {
+  background: linear-gradient(160deg, #fff9fb 0%, #fff0f4 100%);
+  border: 1px solid rgba(192, 57, 90, 0.16);
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
+
+.cartao-capa {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 35%),
+    linear-gradient(135deg, #ffb6c1 0%, #ff7f9f 45%, #ff5f87 100%);
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cartao-capa::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,0.45);
+}
+
+.cartao-capa-frente {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.icone-cartao {
+  font-size: 54px;
+  margin-bottom: 6px;
+}
+
+.cartao-capa strong {
+  font-size: 1.5rem;
+}
+
+.cartao-capa small {
+  font-size: 0.95rem;
+  opacity: 0.92;
+}
+
+.cartao-conteudo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 36px 40px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #6b0a0a;
+}
+
+.cabecalho-cartao {
+  display: inline-flex;
+  align-self: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(192, 57, 90, 0.1);
+  color: #c0395a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cartao-conteudo h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  line-height: 1.05;
+  color: #b3002d;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65), 0 2px 12px rgba(192, 57, 90, 0.14);
+}
+
+.cartao-conteudo p {
+  font-size: 1.06rem;
+  line-height: 1.6;
+}
+
+.cartao-conteudo .assinatura {
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 2px;
+  font-size: 1rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.cartao-real.aberto .cartao-capa {
+  transform: rotateY(-180deg);
+  opacity: 0;
+}
+
+.cartao-real.aberto .cartao-interior {
+  transform: rotateY(0deg);
+}
+
+.dica {
+  margin-top: 16px;
+  color: #8b0000;
+  font-weight: 600;
+}
+
+/* Teaser card styling (also used on main page) */
+.cartao-mesversario.teaser {
+  width: 350px;
+  height: 260px;
+  background: linear-gradient(180deg, #fff0f0, #ffe6e6);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartao-mesversario.teaser:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.coracao-grande {
+  font-size: 48px;
+}
+
+.cartao-mesversario.teaser h3 {
+  color: #8b0000;
+  font-size: 1.6rem;
+}
+
+.cartao-mesversario.teaser p {
+  color: #6b0a0a;
+  font-weight: 600;
+}
+

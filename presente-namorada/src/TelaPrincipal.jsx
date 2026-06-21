@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import CartaoMomento from './CartaoMomento';
+import CartaoMesversario from './CartaoMesversario';
 import './App.css';
 
-export default function TelaPrincipal({ onVoltar }) {
+export default function TelaPrincipal({ onVoltar, musicaAtiva, onToggleMusica }) {
     const [historia, setHistoria] = useState([]);
     const [carregando, setCarregando] = useState(true);
     const [desbloqueados, setDesbloqueados] = useState(1);
+    const [secao, setSecao] = useState('memorias'); // 'memorias' | 'mesversario'
     const { width, height } = useWindowSize();
 
     useEffect(() => {
@@ -38,23 +40,53 @@ export default function TelaPrincipal({ onVoltar }) {
             />
 
             <div className="cabecalho">
-                <button className="botao-voltar" onClick={onVoltar}>
-                    ⬅ Voltar
-                </button>
-                <h2>Aventuras Desbloqueadas</h2>
+                <div className="cabecalho-esquerda">
+                    <button className="botao-voltar" onClick={onVoltar}>
+                        ⬅ Voltar
+                    </button>
+
+                    <button className="botao-musica" onClick={onToggleMusica}>
+                        {musicaAtiva ? '⏸ Pausar música' : '▶ Retomar música'}
+                    </button>
+                </div>
+
+                <nav className="nav-links">
+                    <button
+                        className={`nav-link ${secao === 'memorias' ? 'ativo' : ''}`}
+                        onClick={() => setSecao('memorias')}
+                    >
+                        Memórias
+                    </button>
+                    <button
+                        className={`nav-link ${secao === 'mesversario' ? 'ativo' : ''}`}
+                        onClick={() => setSecao('mesversario')}
+                    >
+                        Mesversário
+                    </button>
+                </nav>
             </div>
 
-            <div className="grade-cartas">
-                {carregando && <p className="texto-carregando">Carregando nossas memórias...</p>}
-                {historia.map((momento, index) => (
-                    <CartaoMomento
-                        key={momento.id}
-                        momento={momento}
-                        desbloqueado={index < desbloqueados}
-                        onVirar={() => handleVirar(index)}
-                    />
-                ))}
-            </div>
+            {secao === 'memorias' && (
+                <div className="grade-cartas">
+                    {carregando && <p className="texto-carregando">Carregando nossas memórias...</p>}
+
+
+                    {historia.map((momento, index) => (
+                        <CartaoMomento
+                            key={momento.id}
+                            momento={momento}
+                            desbloqueado={index < desbloqueados}
+                            onVirar={() => handleVirar(index)}
+                        />
+                    ))}
+                </div>
+            )}
+
+            {secao === 'mesversario' && (
+                <div className="pagina-mesversario">
+                    <CartaoMesversario onVoltar={() => setSecao('memorias')} />
+                </div>
+            )}
         </div>
     );
 }
